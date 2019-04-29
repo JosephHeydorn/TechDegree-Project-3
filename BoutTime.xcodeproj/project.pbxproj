@@ -45,8 +45,8 @@
 		3A8AADD91DF9B85E00A2B931 /* BoutTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoutTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A8AADE41DF9B85E00A2B931 /* BoutTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoutTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D432DB58227101CB00A63223 /* HistoricalEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalEvents.swift; sourceTree = "<group>"; };
-		D455AAE322767C5C007A5A56 /* CorrectDing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = CorrectDing.wav; path = "../../../Unit3 Recources/AudioClips/CorrectDing.wav"; sourceTree = "<group>"; };
-		D455AAE522767C65007A5A56 /* IncorrectBuzz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = IncorrectBuzz.wav; path = "../../../Unit3 Recources/AudioClips/IncorrectBuzz.wav"; sourceTree = "<group>"; };
+		D455AAE322767C5C007A5A56 /* CorrectDing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = CorrectDing.wav; path = ../CorrectDing.wav; sourceTree = "<group>"; };
+		D455AAE522767C65007A5A56 /* IncorrectBuzz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = IncorrectBuzz.wav; path = ../IncorrectBuzz.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
