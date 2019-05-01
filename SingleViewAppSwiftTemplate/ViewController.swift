@@ -89,7 +89,6 @@ class ViewController: UIViewController {
     }
     //Game Processing Functions
     func displayGameScore() {
-        timer.invalidate()
         scoreDisplay.isHidden = false
     }
     func gameHidden() {
@@ -108,6 +107,8 @@ class ViewController: UIViewController {
         NextRoundRight.isHidden = true
     }
     func generateNewQuestion() {
+        timer.invalidate()
+        eventProvidor.shuffleQuestions()
         fact1 = eventProvidor.factSpot1Providor()
         fact2 = eventProvidor.factSpot2Providor()
         fact3 = eventProvidor.factSpot3Providor()
@@ -123,6 +124,7 @@ class ViewController: UIViewController {
         factSpot4.text = fact4
         timerClock.isHidden = false
         checkGameStatus()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.countDown), userInfo: nil, repeats: true)
     }
     func gamePrepAndBegin() {
         timerClock.isHidden = false
@@ -155,7 +157,8 @@ class ViewController: UIViewController {
     
     //FIXME: Timer shows -1 when pressing new round button
     @IBAction func gameStarter(_ sender: UIButton) {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.countDown), userInfo: nil, repeats: true)
+        time = 60
+        timerClock.text = "60"
         gamePrepAndBegin()
         correctQuestions = 0
         questionsAsked = 0
@@ -248,6 +251,7 @@ class ViewController: UIViewController {
     //Declaring how many rounds are played to display score
     func checkGameStatus() {
         if questionsAsked == questionsPerGame {
+            time = -1
             gameHidden()
             displayGameScore()
             scoreDisplay.text = ("Your Score Is \(correctQuestions)/6")
@@ -263,10 +267,12 @@ class ViewController: UIViewController {
                 timerClock.isHidden = true
                 NextRoundRight.isHidden = false
                 correctDing()
+                time = -1
             } else {
                 timerClock.isHidden = true
                 NextRoundWrong.isHidden = false
                 incorrectBuzz()
+                time = -1
             }
         }
     }

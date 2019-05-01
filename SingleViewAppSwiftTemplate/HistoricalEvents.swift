@@ -15,12 +15,7 @@ struct EventPrep {
 }
 
 class EventList {
-    var questionMixer1 = 0
-    var questionMixer2 = 0
-    var questionMixer3 = 0
-    var questionMixer4 = 0
-    
-    let eventGroup = [
+    var eventGroup = [
         EventPrep(event: "WW2 Began", year: 1939),
         EventPrep(event: "The Great Depression Began", year: 1929),
         EventPrep(event: "Hindenburg Zeppelin Fell", year: 1933),
@@ -47,66 +42,50 @@ class EventList {
         EventPrep(event: "The First US Map was Created", year: 1784),
         EventPrep(event: "The Black Plague Ran Through Europe", year: 1346)
         ]
-   
+    //Shuffle The Questions
+    func shuffleQuestions() {
+        eventGroup.shuffle()
+    }
+    //Grabbing Each Question
     func factSpot1Providor() -> String {
-        questionMixer1 = GKRandomSource.sharedRandom().nextInt(upperBound:eventGroup.count)
-        //Below checks for a duplicate
-        if questionMixer2 == questionMixer1 || questionMixer3 == questionMixer1 || questionMixer4 == questionMixer1 {
-            questionMixer1 = GKRandomSource.sharedRandom().nextInt(upperBound:eventGroup.count)
-        }
-        let eventFinder = eventGroup[questionMixer1]
-        let choice1 = eventFinder.event
+        let questionMixer = eventGroup[0]
+        let choice1 = questionMixer.event
         return choice1
     }
     func factSpot2Providor() -> String {
-        questionMixer2 = GKRandomSource.sharedRandom().nextInt(upperBound:eventGroup.count)
-        //Below checks for a duplicate
-        if questionMixer1 == questionMixer2 || questionMixer3 == questionMixer2 || questionMixer4 == questionMixer2 {
-            questionMixer2 = GKRandomSource.sharedRandom().nextInt(upperBound:eventGroup.count)
-        }
-        let eventFinder = eventGroup[questionMixer2]
-        let choice2 = eventFinder.event
+        let questionMixer = eventGroup[1]
+        let choice2 = questionMixer.event
         return choice2
     }
      
     func factSpot3Providor() -> String {
-        questionMixer3 = GKRandomSource.sharedRandom().nextInt(upperBound:eventGroup.count)
-        //Below checks for a duplicate
-        if questionMixer1 == questionMixer3 || questionMixer2 == questionMixer3 || questionMixer4 == questionMixer3 {
-            questionMixer3 = GKRandomSource.sharedRandom().nextInt(upperBound:eventGroup.count)
-        }
-        let eventFinder = eventGroup[questionMixer3]
-        let choice3 = eventFinder.event
+        let questionMixer = eventGroup[2]
+        let choice3 = questionMixer.event
         return choice3
     }
     func factSpot4Providor() -> String {
-        questionMixer4 = GKRandomSource.sharedRandom().nextInt(upperBound:eventGroup.count)
-        //Below checks for a duplicate
-        if questionMixer1 == questionMixer4 || questionMixer2 == questionMixer4 || questionMixer3 == questionMixer4 {
-            questionMixer4 = GKRandomSource.sharedRandom().nextInt(upperBound:eventGroup.count)
-        }
-        let eventFinder = eventGroup[questionMixer4]
-        let choice4 = eventFinder.event
+        let questionMixer = eventGroup[3]
+        let choice4 = questionMixer.event
         return choice4
     }
     //Check for answers
     func checkDate1() -> Int{
-        let answerFinder = eventGroup[questionMixer1]
+        let answerFinder = eventGroup[0]
         let date1 = answerFinder.year
         return date1
     }
     func checkDate2() -> Int{
-        let answerFinder = eventGroup[questionMixer2]
+        let answerFinder = eventGroup[1]
         let date2 = answerFinder.year
         return date2
     }
     func checkDate3() -> Int{
-        let answerFinder = eventGroup[questionMixer3]
+        let answerFinder = eventGroup[2]
         let date3 = answerFinder.year
         return date3
     }
     func checkDate4() -> Int{
-        let answerFinder = eventGroup[questionMixer4]
+        let answerFinder = eventGroup[3]
         let date4 = answerFinder.year
         return date4
     }
